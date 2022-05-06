@@ -14,7 +14,7 @@ object-oriented JavaScrpt to animate the image props in the background.
 ## Status
 
 The object structure is in place and working well. Currently hard-sized
-green rectangles are draw and will bounce around or attempt to recede
+green rectangles are drawn and will bounce around or attempt to recede
 into the background via scaling down, but the scaling is not yet working
 as desired.
 
