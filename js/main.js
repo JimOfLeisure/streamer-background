@@ -90,7 +90,7 @@ const streamerBG = new StreamerBackground(canvas);
 streamerBG.addProp(thing);
 
 for (let i=0; i < thingCount; i++) {
-    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width ),Math.floor(Math.random() * canvas.height )), new Vec2(Math.random() - 0.5,Math.random() - 0.5));
+    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width ),Math.floor(Math.random() * canvas.height )), new Vec2(Math.random() * 5 - 0.5,Math.random() * 5 - 0.5));
     streamerBG.addProp(prop);
 }
 streamerBG.drawProps();
