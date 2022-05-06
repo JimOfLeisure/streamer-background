@@ -58,6 +58,7 @@ class StreamerBackground {
     process() {
         for (let prop of this.props) {
             prop.process();
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             prop.draw(this.ctx);
         }
     }
