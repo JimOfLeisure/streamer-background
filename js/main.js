@@ -58,9 +58,10 @@ class StreamerBackground {
         this.intervalID = null;
     }
     process() {
+        // TODO: do I want to process all props then draw all or stay like this?
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let prop of this.props) {
             prop.process();
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             prop.draw(this.ctx);
         }
     }
@@ -73,8 +74,9 @@ const thing = new BackgroundProp(new Vec2(0,0), new Vec2(1,1));
 const streamerBG = new StreamerBackground(canvas);
 
 streamerBG.addProp(thing);
+
 for (let i=0; i < thingCount; i++) {
-    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() *300 ),Math.floor(Math.random() * 150 )), new Vec2(Math.random(),Math.random()));
+    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() *300 ),Math.floor(Math.random() * 150 )), new Vec2(Math.random() - 0.5,Math.random() - 0.5));
     streamerBG.addProp(prop);
 }
 streamerBG.drawProps();
