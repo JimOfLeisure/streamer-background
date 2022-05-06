@@ -28,6 +28,7 @@ shooting stars and such.
 
 ### Next steps
 
+- Auto-start animation (?)
 - Fix "3d" scaling
 - Make canvas fill window for use as browser scene for background
 - Use position for center of prop instead of top-left
@@ -41,6 +42,7 @@ shooting stars and such.
 
 - Perhaps limit number of on-screen props at a time; they take turns flying by
 - Control interface on separate page
+- Turn code into module
 
 ### Stretch ideas
 
