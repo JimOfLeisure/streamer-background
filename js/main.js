@@ -26,8 +26,11 @@ class BackgroundProp {
         ctx.fillStyle = this.fillStyle;
         ctx.fillRect(this.pos.x, this.pos.y, 50, 25);
     }
-    process() {
+    process(ctx) {
         this.pos.add(this.vel);
+        if (this.pos.x > ctx.canvas.width && this.vel.x > 0) {
+            this.vel.x = -this.vel.x;
+        }
     }
 }
 
@@ -63,7 +66,7 @@ class StreamerBackground {
         // TODO: do I want to process all props then draw all or stay like this?
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let prop of this.props) {
-            prop.process();
+            prop.process(this.ctx);
             prop.draw(this.ctx);
         }
     }
