@@ -1,4 +1,4 @@
-const thingCount = 1;
+const thingCount = 20;
 
 class Vec2 {
     constructor(x, y) {
@@ -57,12 +57,16 @@ class BackgroundProp {
 
 class BgProp3d extends BackgroundProp {
     draw(ctx) {
-        ctx.scale = this.pos.z === 0 ? 1 : 1 / this.pos.z;
+        const scale = this.pos.z < 100 ? 1 : 0.5;
+        console.log(scale);
+        ctx.scale(scale, scale);
         super.draw(ctx);
+        // is this needed? reset scale for next item?
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
     process(ctx) {
         this.pos.add(this.vel);
-        console.log(this.pos.z);
+        // console.log(this.pos.z);
         if (this.pos.z > 300) {
             this.reset();
         }
