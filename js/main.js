@@ -48,8 +48,7 @@ class StreamerBackground {
         }
         // 60fps
         this.intervalID = setInterval(this.process.bind(this),
-            200
-            // 16.6666
+            16.6666
         );
     }
     stopMotion() {
@@ -57,7 +56,6 @@ class StreamerBackground {
         this.intervalID = null;
     }
     process() {
-        console.log('process', this.intervalID);
         for (let prop of this.props) {
             prop.process();
             prop.draw(this.ctx);
