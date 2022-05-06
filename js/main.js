@@ -15,7 +15,7 @@ class BackgroundProp {
     draw(ctx) {
         // temp hard-coding
         ctx.fillStyle = this.fillStyle;
-        ctx.fillRect(10, 10, 150, 100);
+        ctx.fillRect(this.pos.x, this.pos.y, 50, 25);
     }
 }
 
