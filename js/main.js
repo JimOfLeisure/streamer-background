@@ -58,7 +58,6 @@ class BackgroundProp {
 class BgProp3d extends BackgroundProp {
     draw(ctx) {
         const scale = this.pos.z < 100 ? 1 : 0.5;
-        console.log(scale);
         ctx.scale(scale, scale);
         super.draw(ctx);
         // is this needed? reset scale for next item?
@@ -66,7 +65,6 @@ class BgProp3d extends BackgroundProp {
     }
     process(ctx) {
         this.pos.add(this.vel);
-        // console.log(this.pos.z);
         if (this.pos.z > 300) {
             this.reset();
         }
@@ -126,11 +124,7 @@ class StreamerBackground {
 
 const canvas = document.querySelector('#canvas');
 
-// const thing = new BackgroundProp(new Vec2(0, 0), new Vec2(1, 1));
-
 const streamerBG = new StreamerBackground(canvas);
-
-// streamerBG.addProp(thing);
 
 for (let i = 0; i < thingCount; i++) {
     const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height)), new Vec2(Math.random() * 5 - 0.5, Math.random() * 5 - 0.5));
@@ -145,7 +139,7 @@ for (let i = 0; i < thingCount; i++) {
             Math.random() * 5
         )
     );
-    // streamerBG.addProp(prop);
+    streamerBG.addProp(prop);
     streamerBG.addProp(prop3d);
 }
 streamerBG.drawProps();
