@@ -31,6 +31,15 @@ class BackgroundProp {
         if (this.pos.x > ctx.canvas.width && this.vel.x > 0) {
             this.vel.x = -this.vel.x;
         }
+        if (this.pos.x < 0 && this.vel.x < 0) {
+            this.vel.x = -this.vel.x;
+        }
+        if (this.pos.y > ctx.canvas.height && this.vel.y > 0) {
+            this.vel.y = -this.vel.y;
+        }
+        if (this.pos.y < 0 && this.vel.y < 0) {
+            this.vel.y = -this.vel.y;
+        }
     }
 }
 
