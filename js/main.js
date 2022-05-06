@@ -57,7 +57,7 @@ class BackgroundProp {
 
 class BgProp3d extends BackgroundProp {
     draw(ctx) {
-        const scale = this.pos.z < 100 ? 1 : 0.5;
+        const scale = 1 - (this.pos.z / 100);
         ctx.scale(scale, scale);
         super.draw(ctx);
         // is this needed? reset scale for next item?
