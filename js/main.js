@@ -3,11 +3,16 @@ class Vec2 {
         this.x = x;
         this.y = y;
     }
+    add(vector2) {
+        this.x += vector2.x;
+        this.y += vector2.y;
+    }
 }
 
 class BackgroundProp {
-    constructor(pos) {
+    constructor(pos, vel) {
         this.pos = pos;
+        this.vel = vel;
         // temp hard-coding
         this.fillStyle = 'green';
 
@@ -15,6 +20,9 @@ class BackgroundProp {
     draw(ctx) {
         ctx.fillStyle = this.fillStyle;
         ctx.fillRect(this.pos.x, this.pos.y, 50, 25);
+    }
+    process() {
+        this.pos.add(this.vel);
     }
 }
 
@@ -39,16 +47,27 @@ class StreamerBackground {
             clearInterval(this.intervalID);
         }
         // 60fps
-        this.intervalID = setInterval(this.process.bind(this), 16.6666);
+        this.intervalID = setInterval(this.process.bind(this),
+            200
+            // 16.6666
+        );
+    }
+    stopMotion() {
+        clearInterval(this.intervalID);
+        this.intervalID = null;
     }
     process() {
         console.log('process', this.intervalID);
+        for (let prop of this.props) {
+            prop.process();
+            prop.draw(this.ctx);
+        }
     }
 }
 
 const canvas = document.querySelector('#canvas');
 
-const thing = new BackgroundProp(new Vec2(50,50));
+const thing = new BackgroundProp(new Vec2(0,0), new Vec2(1,1));
 
 const streamerBG = new StreamerBackground(canvas);
 
