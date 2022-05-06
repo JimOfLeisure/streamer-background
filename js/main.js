@@ -1,5 +1,3 @@
-console.log('hi');
-
 class Vec2 {
     constructor(x, y) {
         this.x = x;
@@ -26,11 +24,7 @@ class StreamerBackground {
 const canvas = document.querySelector('#canvas');
 
 const thing = new BackgroundProp(new Vec2(50,50));
-console.log(thing.pos.x);
-console.log(thing.pos.y);
 
 const streamerBG = new StreamerBackground(canvas);
-console.log(streamerBG.canvas);
 
 streamerBG.addProp(thing);
-console.log(streamerBG.props);
