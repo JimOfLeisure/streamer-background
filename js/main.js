@@ -1,4 +1,4 @@
-const thingCount = 50;
+const thingCount = 1;
 
 class Vec2 {
     constructor(x, y) {
@@ -11,9 +11,21 @@ class Vec2 {
     }
 }
 
-// does prop need to know how much time has elapsed?
-// or can it just rely on its position?
-// prop will manage its movement
+class Vec3 extends Vec2 {
+    constructor(x, y, z) {
+        super(x, y);
+        this.z = z;
+    }
+    add(vector3) {
+        super.add(vector3);
+        this.z += vector3.z;
+    }
+}
+
+// does prop need to know how much time has elapsed? NO!!!
+// or can it just rely on its position?  YES!!!
+// props will continue to self-manage; 2d props will use screen edges;
+// 3d / parallax props will use depth to reset
 class BackgroundProp {
     constructor(pos, vel) {
         this.pos = pos;
@@ -40,6 +52,33 @@ class BackgroundProp {
         if (this.pos.y < 0 && this.vel.y < 0) {
             this.vel.y = -this.vel.y;
         }
+    }
+}
+
+class BgProp3d extends BackgroundProp {
+    draw(ctx) {
+        ctx.scale = this.pos.z === 0 ? 1 : 1 / this.pos.z;
+        super.draw(ctx);
+    }
+    process(ctx) {
+        this.pos.add(this.vel);
+        console.log(this.pos.z);
+        if (this.pos.z > 300) {
+            this.reset();
+        }
+    }
+    reset() {
+        this.pos.z = 0;
+        this.pos = new Vec3(
+            Math.floor(Math.random() * canvas.width),
+            Math.floor(Math.random() * canvas.height),
+            0
+        );
+        this.vel = new Vec3(
+            Math.random() * 5 - 0.5,
+            Math.random() * 5 - 0.5,
+            Math.random() * 5
+        )
     }
 }
 
@@ -83,15 +122,27 @@ class StreamerBackground {
 
 const canvas = document.querySelector('#canvas');
 
-const thing = new BackgroundProp(new Vec2(0,0), new Vec2(1,1));
+// const thing = new BackgroundProp(new Vec2(0, 0), new Vec2(1, 1));
 
 const streamerBG = new StreamerBackground(canvas);
 
-streamerBG.addProp(thing);
+// streamerBG.addProp(thing);
 
-for (let i=0; i < thingCount; i++) {
-    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width ),Math.floor(Math.random() * canvas.height )), new Vec2(Math.random() * 5 - 0.5,Math.random() * 5 - 0.5));
-    streamerBG.addProp(prop);
+for (let i = 0; i < thingCount; i++) {
+    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height)), new Vec2(Math.random() * 5 - 0.5, Math.random() * 5 - 0.5));
+    const prop3d = new BgProp3d(
+        new Vec3(
+            Math.floor(Math.random() * canvas.width),
+            Math.floor(Math.random() * canvas.height),
+            0
+        ), new Vec3(
+            Math.random() * 5 - 0.5,
+            Math.random() * 5 - 0.5,
+            Math.random() * 5
+        )
+    );
+    // streamerBG.addProp(prop);
+    streamerBG.addProp(prop3d);
 }
 streamerBG.drawProps();
 
