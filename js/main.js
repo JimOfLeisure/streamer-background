@@ -1,4 +1,4 @@
-const thingCount = 5;
+const thingCount = 20;
 
 class Vec2 {
     constructor(x, y) {
@@ -40,7 +40,6 @@ class StreamerBackground {
     }
     drawProps() {
         for (let prop of this.props) {
-            console.log('hi', this.props);
             prop.draw(this.ctx);
         }
     }
