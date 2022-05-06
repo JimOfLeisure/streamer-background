@@ -1,4 +1,4 @@
-const thingCount = 20;
+const thingCount = 50;
 
 class Vec2 {
     constructor(x, y) {
@@ -11,6 +11,9 @@ class Vec2 {
     }
 }
 
+// does prop need to know how much time has elapsed?
+// or can it just rely on its position?
+// prop will manage its movement
 class BackgroundProp {
     constructor(pos, vel) {
         this.pos = pos;
@@ -75,7 +78,10 @@ const streamerBG = new StreamerBackground(canvas);
 streamerBG.addProp(thing);
 
 for (let i=0; i < thingCount; i++) {
-    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() *300 ),Math.floor(Math.random() * 150 )), new Vec2(Math.random() - 0.5,Math.random() - 0.5));
+    const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width ),Math.floor(Math.random() * canvas.height )), new Vec2(Math.random() - 0.5,Math.random() - 0.5));
     streamerBG.addProp(prop);
 }
 streamerBG.drawProps();
+
+document.querySelector('#start').addEventListener('click', streamerBG.startMotion.bind(streamerBG));
+document.querySelector('#stop').addEventListener('click', streamerBG.stopMotion.bind(streamerBG));
