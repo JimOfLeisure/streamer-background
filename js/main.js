@@ -13,7 +13,6 @@ class BackgroundProp {
 
     }
     draw(ctx) {
-        // temp hard-coding
         ctx.fillStyle = this.fillStyle;
         ctx.fillRect(this.pos.x, this.pos.y, 50, 25);
     }
@@ -24,6 +23,7 @@ class StreamerBackground {
         this.canvas = canvas;
         this.props = props;
         this.ctx = canvas.getContext('2d');
+        this.intervalID = null;
     }
     addProp(prop) {
         this.props.push(prop);
@@ -33,6 +33,16 @@ class StreamerBackground {
             console.log('hi', this.props);
             prop.draw(this.ctx);
         }
+    }
+    startMotion() {
+        if (this.intervalID !== null) {
+            clearInterval(this.intervalID);
+        }
+        // 60fps
+        this.intervalID = setInterval(this.process.bind(this), 16.6666);
+    }
+    process() {
+        console.log('process', this.intervalID);
     }
 }
 
