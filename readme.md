@@ -52,5 +52,6 @@ shooting stars and such.
 
 ## Credits
 
-- Cat_November_2010-1a.jpg - Copyright https://commons.wikimedia.org/wiki/User:Alvesgaspar 2010, from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
-- 800px-Cat_March_2010-1.jpg -  - Copyright https://commons.wikimedia.org/wiki/User:Alvesgaspar 2010, from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+- Cat_November_2010-1a.jpg - Copyright 2010 https://commons.wikimedia.org/wiki/User:Alvesgaspar , from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+- 800px-Cat_March_2010-1.jpg - Copyright 2010 https://commons.wikimedia.org/wiki/User:Alvesgaspar , from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+- Astronaut%2C_cosmonaut_space_suit_model_in_Kennedy_Space_Center_Visitor_Complex.jpg - Copyright 2016 https://commons.wikimedia.org/wiki/User:MAKY.OREL , from https://commons.wikimedia.org/wiki/File:Astronaut,_cosmonaut_space_suit_model_in_Kennedy_Space_Center_Visitor_Complex.jpg, license: https://creativecommons.org/licenses/by-sa/4.0/deed.en
