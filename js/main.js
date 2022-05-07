@@ -1,6 +1,6 @@
 const thingCount = 20;
 const imagePropsCount = 2;
-const imageProps3dCount = 5;
+const imageProps3dCount = 7;
 
 class Vec2 {
     constructor(x, y) {
@@ -80,9 +80,9 @@ class BgProp3d extends BackgroundProp {
             0
         );
         this.vel = new Vec3(
-            Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5,
-            Math.random() * 5
+            (Math.random() - 0.5) * 5,
+            (Math.random() - 0.5) * 5,
+            Math.random() * 3 + 0.2
         )
     }
 }
@@ -170,8 +170,8 @@ for (let i = 0; i < thingCount; i++) {
             Math.floor(Math.random() * canvas.height),
             0
         ), new Vec3(
-            Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5,
+            (Math.random() - 0.5) * 5,
+            (Math.random() - 0.5) * 5,
             Math.random() * 5
         )
     );
@@ -186,9 +186,9 @@ for (let i = 0; i < imageProps3dCount; i++) {
             Math.floor(Math.random() * canvas.height),
             0
         ), new Vec3(
-            Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5,
-            Math.random() * 5
+            (Math.random() - 0.5) * 5,
+            (Math.random() - 0.5) * 5,
+            Math.random() * 3 + 0.2
         ),
         images[Math.floor(Math.random() * images.length)],
         0.2
@@ -202,8 +202,8 @@ for (let i = 0; i < imagePropsCount; i++) {
             Math.floor(Math.random() * canvas.width),
             Math.floor(Math.random() * canvas.height)
         ), new Vec2(
-            Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5
+            (Math.random() - 0.5) * 5,
+            (Math.random() - 0.5) * 5,
         ),
         images[Math.floor(Math.random() * images.length)],
         0.2
