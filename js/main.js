@@ -140,6 +140,8 @@ const canvas = document.querySelector('#canvas');
 
 const streamerBG = new StreamerBackground(canvas);
 
+const images = Array.from(document.querySelectorAll('#canvasImages > img'));
+
 for (let i = 0; i < thingCount; i++) {
     const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height)), new Vec2(Math.random() * 5 - 0.5, Math.random() * 5 - 0.5));
     const imageProp = new BackgroundProp(
@@ -148,8 +150,10 @@ for (let i = 0; i < thingCount; i++) {
             Math.floor(Math.random() * canvas.height)
         ), new Vec2(
             Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5)
-        );
+            Math.random() * 5 - 0.5
+        ),
+        images[Math.floor(Math.random() * images.length)]
+    );
     const prop3d = new BgProp3d(
         new Vec3(
             Math.floor(Math.random() * canvas.width),
