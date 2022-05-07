@@ -100,7 +100,7 @@ class ImageBgProp3d extends BgProp3d {
         this.image = image;
     }
     draw(ctx) {
-        const scale = 1 - (this.pos.z / 100);
+        const scale = 1 - (this.pos.z / 300);
         // ctx.scale(scale, scale);
         console.log(this.image.width, this.image.height);
         // ctx.drawImage(this.image, this.pos.x, this.pos.y);
