@@ -84,6 +84,13 @@ class BgProp3d extends BackgroundProp {
     }
 }
 
+class imageBgProp extends BackgroundProp {
+    constructor(pos, vel, image) {
+        super(pos, vel);
+        this.image = image;
+    }
+}
+
 class StreamerBackground {
     constructor(canvas, props = []) {
         this.canvas = canvas;
@@ -135,6 +142,14 @@ const streamerBG = new StreamerBackground(canvas);
 
 for (let i = 0; i < thingCount; i++) {
     const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height)), new Vec2(Math.random() * 5 - 0.5, Math.random() * 5 - 0.5));
+    const imageProp = new BackgroundProp(
+        new Vec2(
+            Math.floor(Math.random() * canvas.width),
+            Math.floor(Math.random() * canvas.height)
+        ), new Vec2(
+            Math.random() * 5 - 0.5,
+            Math.random() * 5 - 0.5)
+        );
     const prop3d = new BgProp3d(
         new Vec3(
             Math.floor(Math.random() * canvas.width),
@@ -147,7 +162,7 @@ for (let i = 0; i < thingCount; i++) {
         )
     );
     streamerBG.addProp(prop);
-    streamerBG.addProp(prop3d);
+    // streamerBG.addProp(prop3d);
 }
 streamerBG.drawProps();
 
