@@ -105,7 +105,7 @@ class ImageBgProp3d extends BgProp3d {
         console.log(this.image.width, this.image.height);
         // ctx.drawImage(this.image, this.pos.x, this.pos.y);
 // bad order line        ctx.drawImage(this.image, this.pos.x, this.pos.y, 0, 0, this.image.width, this.image.height);
-        ctx.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.pos.x, this.pos.y, this.image.width, this.image.height);
+        ctx.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.pos.x, this.pos.y, this.image.width * scale, this.image.height * scale);
         // is this needed? reset scale for next item?
         ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
