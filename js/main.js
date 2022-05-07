@@ -112,6 +112,13 @@ class StreamerBackground {
         clearInterval(this.intervalID);
         this.intervalID = null;
     }
+    toggleMotion() {
+        if (this.intervalID !== null) {
+            this.stopMotion();
+        } else {
+            this.startMotion();
+        }
+    }
     process() {
         // TODO: do I want to process all props then draw all or stay like this?
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -144,5 +151,6 @@ for (let i = 0; i < thingCount; i++) {
 }
 streamerBG.drawProps();
 
-document.querySelector('#start').addEventListener('click', streamerBG.startMotion.bind(streamerBG));
-document.querySelector('#stop').addEventListener('click', streamerBG.stopMotion.bind(streamerBG));
+document.querySelector('#start-stop').addEventListener('click', streamerBG.toggleMotion.bind(streamerBG));
+
+streamerBG.startMotion();
