@@ -63,8 +63,8 @@ export class BgProp3d extends BackgroundProp {
     }
     reset(ctx) {
         this.pos.z = 0;
-        super.resetPos(ctx);
-        super.resetVel(ctx);
+        this.resetPos(ctx);
+        this.resetVel(ctx);
     }
     // needs canvas ref to get width and height
     resetPos(ctx) {
