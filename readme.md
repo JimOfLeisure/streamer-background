@@ -53,3 +53,8 @@ shooting stars and such.
 
 - Enable scenes; have background manager able to change scenes and perhaps even do transitions
 - Camera moves through 3d space instead of objects flying by relative to camera
+
+## Credits
+
+- Cat_November_2010-1a.jpg - Copyright https://commons.wikimedia.org/wiki/User:Alvesgaspar 2010, from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+- 800px-Cat_March_2010-1.jpg -  - Copyright https://commons.wikimedia.org/wiki/User:Alvesgaspar 2010, from https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg, license: https://creativecommons.org/licenses/by-sa/3.0/deed.en
