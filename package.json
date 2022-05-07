@@ -1,0 +1,22 @@
+{
+  "name": "streamer-background",
+  "version": "1.0.0",
+  "description": "Animated html background for video streamers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimOfLeisure/streamer-background.git"
+  },
+  "author": "Jim \"JimOfLeisure\" Nelson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JimOfLeisure/streamer-background/issues"
+  },
+  "homepage": "https://github.com/JimOfLeisure/streamer-background#readme",
+  "devDependencies": {
+    "serve": "^13.0.2"
+  }
+}
