@@ -18,6 +18,10 @@ object-oriented JavaScrpt to animate the image props in the background.
 The object structure is in place and working well. Kitty pics
 can bounce around and/or fly into the distance randomly.
 
+The code has been refactored into es6 modules which has
+some consequences, particularly it needs a dev server now
+instead of file:/// url.
+
 Future steps include improving prop self-tracking,
 animated image display, and perhaps effects objects for
 shooting stars and such.
