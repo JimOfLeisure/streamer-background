@@ -15,25 +15,20 @@ object-oriented JavaScrpt to animate the image props in the background.
 
 ## Status
 
-The object structure is in place and working well. Currently hard-sized
-green rectangles are drawn and will bounce around or attempt to recede
-into the background via scaling down, but the scaling is not yet working
-as desired.
+The object structure is in place and working well. Kitty pics
+can bounce around and/or fly into the distance randomly.
 
-Future steps include fixing scaling, improving prop self-tracking,
-image display, animated image display, and perhaps effects objects for
+Future steps include improving prop self-tracking,
+animated image display, and perhaps effects objects for
 shooting stars and such.
 
 ## Idea lists
 
 ### Next steps
 
-- Auto-start animation (?)
-- Fix "3d" scaling
 - Make canvas fill window for use as browser scene for background
 - Use position for center of prop instead of top-left
 - Instead of totally random start and velocity, choose random off-screen spot and a velocity that takes it reasonably across the screen
-- Actually use images
 - Animated props
 - Props within props (e.g. to put cat image in space suit)
 - Drawn props with shaders for effects (e.g. shooting stars)
@@ -43,6 +38,7 @@ shooting stars and such.
 - Perhaps limit number of on-screen props at a time; they take turns flying by
 - Control interface on separate page
 - Turn code into module
+- Rotational velocity
 
 ### Stretch ideas
 
