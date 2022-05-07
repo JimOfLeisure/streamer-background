@@ -1,4 +1,6 @@
 const thingCount = 20;
+const imagePropsCount = 2;
+const imageProps3dCount = 5;
 
 class Vec2 {
     constructor(x, y) {
@@ -162,17 +164,6 @@ const images = Array.from(document.querySelectorAll('#canvasImages > img'));
 
 for (let i = 0; i < thingCount; i++) {
     const prop = new BackgroundProp(new Vec2(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height)), new Vec2(Math.random() * 5 - 0.5, Math.random() * 5 - 0.5));
-    const imageProp = new ImageBgProp(
-        new Vec2(
-            Math.floor(Math.random() * canvas.width),
-            Math.floor(Math.random() * canvas.height)
-        ), new Vec2(
-            Math.random() * 5 - 0.5,
-            Math.random() * 5 - 0.5
-        ),
-        images[Math.floor(Math.random() * images.length)],
-        0.2
-    );
     const prop3d = new BgProp3d(
         new Vec3(
             Math.floor(Math.random() * canvas.width),
@@ -184,6 +175,11 @@ for (let i = 0; i < thingCount; i++) {
             Math.random() * 5
         )
     );
+    // streamerBG.addProp(prop);
+    // streamerBG.addProp(prop3d);
+}
+
+for (let i = 0; i < imageProps3dCount; i++) {
     const imageProp3d = new ImageBgProp3d(
         new Vec3(
             Math.floor(Math.random() * canvas.width),
@@ -197,11 +193,24 @@ for (let i = 0; i < thingCount; i++) {
         images[Math.floor(Math.random() * images.length)],
         0.2
     );
-    // streamerBG.addProp(prop);
-    // streamerBG.addProp(prop3d);
-    streamerBG.addProp(imageProp);
     streamerBG.addProp(imageProp3d);
 }
+
+for (let i = 0; i < imagePropsCount; i++) {
+    const imageProp = new ImageBgProp(
+        new Vec2(
+            Math.floor(Math.random() * canvas.width),
+            Math.floor(Math.random() * canvas.height)
+        ), new Vec2(
+            Math.random() * 5 - 0.5,
+            Math.random() * 5 - 0.5
+        ),
+        images[Math.floor(Math.random() * images.length)],
+        0.2
+    );
+    streamerBG.addProp(imageProp);
+}
+
 streamerBG.drawProps();
 
 document.querySelector('#start-stop').addEventListener('click', streamerBG.toggleMotion.bind(streamerBG));
