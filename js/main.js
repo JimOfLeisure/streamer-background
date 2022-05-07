@@ -27,9 +27,10 @@ class Vec3 extends Vec2 {
 // props will continue to self-manage; 2d props will use screen edges;
 // 3d / parallax props will use depth to reset
 class BackgroundProp {
-    constructor(pos, vel) {
+    constructor(pos, vel, scale = 1) {
         this.pos = pos;
         this.vel = vel;
+        this.scale = scale;
         // temp hard-coding
         this.fillStyle = 'green';
 
@@ -85,26 +86,23 @@ class BgProp3d extends BackgroundProp {
 }
 
 class ImageBgProp extends BackgroundProp {
-    constructor(pos, vel, image) {
-        super(pos, vel);
+    constructor(pos, vel, image, scale) {
+        super(pos, vel, scale);
         this.image = image;
     }
     draw(ctx) {
-        ctx.drawImage(this.image, this.pos.x, this.pos.y);
+        // ctx.drawImage(this.image, this.pos.x, this.pos.y);
+        ctx.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.pos.x, this.pos.y, this.image.width * this.scale, this.image.height * this.scale);
     }
 }
 
 class ImageBgProp3d extends BgProp3d {
-    constructor(pos, vel, image) {
-        super(pos, vel);
+    constructor(pos, vel, image, scale) {
+        super(pos, vel, scale);
         this.image = image;
     }
     draw(ctx) {
-        const scale = 1 - (this.pos.z / 300);
-        // ctx.scale(scale, scale);
-        console.log(this.image.width, this.image.height);
-        // ctx.drawImage(this.image, this.pos.x, this.pos.y);
-// bad order line        ctx.drawImage(this.image, this.pos.x, this.pos.y, 0, 0, this.image.width, this.image.height);
+        const scale = this.scale * (1 - (this.pos.z / 300));
         ctx.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.pos.x, this.pos.y, this.image.width * scale, this.image.height * scale);
         // is this needed? reset scale for next item?
         ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -172,7 +170,8 @@ for (let i = 0; i < thingCount; i++) {
             Math.random() * 5 - 0.5,
             Math.random() * 5 - 0.5
         ),
-        images[Math.floor(Math.random() * images.length)]
+        images[Math.floor(Math.random() * images.length)],
+        0.2
     );
     const prop3d = new BgProp3d(
         new Vec3(
@@ -195,11 +194,12 @@ for (let i = 0; i < thingCount; i++) {
             Math.random() * 5 - 0.5,
             Math.random() * 5
         ),
-        images[Math.floor(Math.random() * images.length)]
+        images[Math.floor(Math.random() * images.length)],
+        0.2
     );
     // streamerBG.addProp(prop);
     // streamerBG.addProp(prop3d);
-    // streamerBG.addProp(imageProp);
+    streamerBG.addProp(imageProp);
     streamerBG.addProp(imageProp3d);
 }
 streamerBG.drawProps();
