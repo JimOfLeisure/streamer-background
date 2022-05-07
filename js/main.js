@@ -7,6 +7,7 @@ const imagePropsCount = 2;
 const imageProps3dCount = 7;
 
 const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
 
 const streamerBG = new StreamerBackground(canvas);
 

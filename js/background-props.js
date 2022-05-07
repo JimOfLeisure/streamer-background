@@ -32,6 +32,19 @@ export class BackgroundProp {
             this.vel.y = -this.vel.y;
         }
     }
+    // needs canvas ref to get width and height
+    resetPos(ctx) {
+        this.pos = new Vec2(
+            Math.floor(Math.random() * ctx.canvas.width),
+            Math.floor(Math.random() * ctx.canvas.height)
+        );
+    }
+    resetVel(ctx) {
+        this.vel = new Vec2(
+            (Math.random() - 0.5) * 5,
+            (Math.random() - 0.5) * 5
+        )
+    }
 }
 
 export class BgProp3d extends BackgroundProp {
@@ -50,11 +63,18 @@ export class BgProp3d extends BackgroundProp {
     }
     reset(ctx) {
         this.pos.z = 0;
+        super.resetPos(ctx);
+        super.resetVel(ctx);
+    }
+    // needs canvas ref to get width and height
+    resetPos(ctx) {
         this.pos = new Vec3(
             Math.floor(Math.random() * ctx.canvas.width),
             Math.floor(Math.random() * ctx.canvas.height),
             0
         );
+    }
+    resetVel(ctx) {
         this.vel = new Vec3(
             (Math.random() - 0.5) * 5,
             (Math.random() - 0.5) * 5,
