@@ -45,14 +45,14 @@ export class BgProp3d extends BackgroundProp {
     process(ctx) {
         this.pos.add(this.vel);
         if (this.pos.z > 300) {
-            this.reset();
+            this.reset(ctx);
         }
     }
-    reset() {
+    reset(ctx) {
         this.pos.z = 0;
         this.pos = new Vec3(
-            Math.floor(Math.random() * canvas.width),
-            Math.floor(Math.random() * canvas.height),
+            Math.floor(Math.random() * ctx.canvas.width),
+            Math.floor(Math.random() * ctx.canvas.height),
             0
         );
         this.vel = new Vec3(
