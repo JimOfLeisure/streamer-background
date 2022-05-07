@@ -94,6 +94,20 @@ class ImageBgProp extends BackgroundProp {
     }
 }
 
+class ImageBgProp3d extends BgProp3d {
+    constructor(pos, vel, image) {
+        super(pos, vel);
+        this.image = image;
+    }
+    draw(ctx) {
+        const scale = 1 - (this.pos.z / 100);
+        ctx.scale(scale, scale);
+        ctx.drawImage(this.image, this.pos.x, this.pos.y);
+        // is this needed? reset scale for next item?
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+}
+
 class StreamerBackground {
     constructor(canvas, props = []) {
         this.canvas = canvas;
@@ -168,9 +182,22 @@ for (let i = 0; i < thingCount; i++) {
             Math.random() * 5
         )
     );
+    const imageProp3d = new ImageBgProp3d(
+        new Vec3(
+            Math.floor(Math.random() * canvas.width),
+            Math.floor(Math.random() * canvas.height),
+            0
+        ), new Vec3(
+            Math.random() * 5 - 0.5,
+            Math.random() * 5 - 0.5,
+            Math.random() * 5
+        ),
+        images[Math.floor(Math.random() * images.length)]
+    );
     // streamerBG.addProp(prop);
     // streamerBG.addProp(prop3d);
-    streamerBG.addProp(imageProp);
+    // streamerBG.addProp(imageProp);
+    streamerBG.addProp(imageProp3d);
 }
 streamerBG.drawProps();
 
